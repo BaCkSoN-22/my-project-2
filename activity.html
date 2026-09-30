@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Activity Log - Admin System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>AdminSystem</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="users.html">
+                <span>👥</span>
+                Users
+            </a>
+
+            <a href="activity.html" class="active">
+                <span>📋</span>
+                Activity Log
+            </a>
+
+            <a href="profile.html">
+                <span>👤</span>
+                Profile
+            </a>
+
+            <a href="settings.html">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="themeToggle"
+                class="sidebar-button"
+            >
+                🌙
+                <span>Theme</span>
+            </button>
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="sidebar-button"
+            >
+                🚪
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+
+                <h1>Activity Log</h1>
+
+                <p>
+                    System activity and user actions
+                </p>
+
+            </div>
+
+            <div class="user-info">
+
+                <span id="adminName">
+                    Admin
+                </span>
+
+                <span
+                    id="adminRole"
+                    class="role-badge"
+                >
+                    ADMIN
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="page-content">
+
+
+            <!-- HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <h2>
+                        Activity History
+                    </h2>
+
+                    <p>
+                        View recent system activity.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshActivity"
+                    class="btn btn-primary"
+                >
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <!-- FILTERS -->
+            <div class="card activity-filters">
+
+                <div class="filter-group">
+
+                    <label for="activitySearch">
+                        Search
+                    </label>
+
+                    <input
+                        type="text"
+                        id="activitySearch"
+                        placeholder="Search activity..."
+                    >
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="activityAction">
+                        Action
+                    </label>
+
+                    <select id="activityAction">
+
+                        <option value="all">
+                            All Actions
+                        </option>
+
+                        <option value="login">
+                            Login
+                        </option>
+
+                        <option value="user_added">
+                            User Added
+                        </option>
+
+                        <option value="user_updated">
+                            User Updated
+                        </option>
+
+                        <option value="user_deleted">
+                            User Deleted
+                        </option>
+
+                        <option value="registration">
+                            Registration
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="activityLimit">
+                        Show
+                    </label>
+
+                    <select id="activityLimit">
+
+                        <option value="10">
+                            10
+                        </option>
+
+                        <option value="25">
+                            25
+                        </option>
+
+                        <option value="50">
+                            50
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVITY TABLE -->
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Recent Activity
+                        </h3>
+
+                        <span
+                            id="activityCount"
+                            class="activity-count"
+                        >
+                            0 activities
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    User
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                                <th>
+                                    Description
+                                </th>
+
+                                <th>
+                                    Target
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="activityTableBody"
+                        >
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="table-loading"
+                                >
+                                    Loading...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- PAGINATION -->
+
+                <div class="activity-pagination">
+
+                    <div>
+
+                        Showing
+                        <strong id="activityFrom">
+                            0
+                        </strong>
+
+                        -
+                        <strong id="activityTo">
+                            0
+                        </strong>
+
+                        of
+
+                        <strong id="activityTotal">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="pagination-buttons">
+
+                        <button
+                            type="button"
+                            id="activityPrev"
+                            class="btn btn-secondary"
+                        >
+                            ← Previous
+                        </button>
+
+                        <span id="activityPage">
+                            Page 1
+                        </span>
+
+                        <button
+                            type="button"
+                            id="activityNext"
+                            class="btn btn-secondary"
+                        >
+                            Next →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ERROR / MESSAGE -->
+
+            <div
+                id="activityMessage"
+                class="dashboard-message hidden"
+            ></div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- SCRIPTS -->
+
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/activity.js"></script>
+<script src="js/notifications-ui.js"></script>
+
+</body>
+
+</html>

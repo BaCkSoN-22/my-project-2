@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin System - Settings</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            Admin System
+        </div>
+
+        <nav>
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                Dashboard
+            </a>
+
+            <a
+                href="users.html"
+                class="nav-link admin-only"
+                id="usersNav"
+            >
+                Users
+            </a>
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+            <a
+                href="settings.html"
+                class="nav-link active"
+            >
+                Settings
+            </a>
+
+        </nav>
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Settings
+                </h1>
+
+                <p>
+                    Manage your application settings
+                </p>
+
+            </div>
+
+
+            <div class="user-info">
+
+                <span id="topUserName">
+                    User
+                </span>
+
+                <span
+                    id="topUserRole"
+                    class="role-badge"
+                >
+                    USER
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- SETTINGS CONTENT -->
+
+        <section class="settings-content">
+
+            <div class="settings-card">
+
+                <div class="settings-card-header">
+
+                    <h2>
+                        General Settings
+                    </h2>
+
+                    <p>
+                        Configure your account preferences
+                    </p>
+
+                </div>
+
+
+                <!-- THEME -->
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>
+                            Dark Mode
+                        </h3>
+
+                        <p>
+                            Enable dark mode for the application
+                        </p>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="themeToggle"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- NOTIFICATIONS -->
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>
+                            Notifications
+                        </h3>
+
+                        <p>
+                            Enable application notifications
+                        </p>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="notificationsToggle"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- SAVE -->
+
+                <div class="settings-actions">
+
+                    <button
+                        type="button"
+                        id="saveSettingsBtn"
+                        class="btn-primary"
+                    >
+                        Save Settings
+                    </button>
+
+                    <p
+                        id="settingsMessage"
+                        class="success"
+                    ></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/sidebar.js"></script>
+
+    <script src="js/notifications.js"></script>
+
+    <script src="js/settings.js"></script>
+
+    <script src="js/notifications-ui.js"></script>
+
+</body>
+
+</html>

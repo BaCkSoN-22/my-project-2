@@ -1,0 +1,763 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin System - Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ==============================
+         SIDEBAR
+    =============================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="logo">
+            Home 
+        </div>
+
+        <button
+            id="sidebarToggle"
+            class="sidebar-toggle"
+            type="button"
+        >
+            ☰
+        </button>
+
+        <nav>
+
+            <a
+                href="dashboard.html"
+                class="nav-link active"
+            >
+                Dashboard
+            </a>
+
+            <a
+                href="users.html"
+                class="nav-link admin-only"
+            >
+                Users
+            </a>
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                Settings
+            </a>
+
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+        >
+            🌙
+        </button>
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            type="button"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    System overview
+                </p>
+
+            </div>
+
+
+            <div class="user-info">
+
+                <span id="userName">
+                    User
+                </span>
+
+                <span
+                    id="userRole"
+                    class="role-badge"
+                >
+                    USER
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==============================
+             DASHBOARD CONTENT
+        =============================== -->
+
+        <section class="dashboard-content">
+
+
+            <!-- ==============================
+                 WELCOME
+            =============================== -->
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <h2>
+
+                        Welcome back,
+
+                        <span id="welcomeName">
+                            User
+                        </span>
+
+                    </h2>
+
+                    <p id="welcomeText">
+                        Here is what's happening
+                        with your account.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 ADMIN STATISTICS
+            =============================== -->
+
+            <div
+                class="stats-grid admin-dashboard-only"
+                id="adminStats"
+            >
+
+                <!-- TOTAL USERS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <div class="stat-title">
+                            Total Users
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="totalUsers"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADMINS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👑
+                    </div>
+
+                    <div>
+
+                        <div class="stat-title">
+                            Total Admins
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="totalAdmins"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCOUNTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <div class="stat-title">
+                            Total Accounts
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="totalAccounts"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SESSION -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🟢
+                    </div>
+
+                    <div>
+
+                        <div class="stat-title">
+                            Current Session
+                        </div>
+
+                        <div class="stat-value session-active">
+                            Active
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 ADMIN ANALYTICS
+            =============================== -->
+
+            <div
+                class="dashboard-grid admin-dashboard-only"
+                id="dashboardAnalytics"
+            >
+
+                <!-- USER GROWTH -->
+
+                <div class="dashboard-card chart-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                User Growth
+                            </h2>
+
+                            <p>
+                                Registered users overview
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="chart-container"
+                        id="userGrowthChart"
+                    >
+
+                        <div class="chart-placeholder">
+
+                            <span>
+                                📈
+                            </span>
+
+                            <p>
+                                User growth chart
+                            </p>
+
+                            <small>
+                                Loading data...
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SYSTEM STATUS -->
+
+                <div class="dashboard-card system-status-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                System Status
+                            </h2>
+
+                            <p>
+                                Current system information
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-status-list">
+
+                        <div class="status-row">
+
+                            <span>
+                                API Server
+                            </span>
+
+                            <strong
+                                id="apiStatus"
+                                class="status-online"
+                            >
+                                ● Online
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <span>
+                                Database
+                            </span>
+
+                            <strong
+                                id="databaseStatus"
+                                class="status-online"
+                            >
+                                ● Connected
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <span>
+                                Authentication
+                            </span>
+
+                            <strong
+                                id="authStatus"
+                                class="status-online"
+                            >
+                                ● Active
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <span>
+                                Session
+                            </span>
+
+                            <strong
+                                id="sessionStatus"
+                                class="status-online"
+                            >
+                                ● Active
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            
+<!-- ==============================
+     QUICK ACTIONS
+============================== -->
+
+<div
+    class="dashboard-card quick-actions-card admin-dashboard-only"
+>
+
+    <div class="card-header">
+
+        <div>
+
+            <h2>
+                Quick Actions
+            </h2>
+
+            <p>
+                Frequently used actions
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="quick-actions">
+
+        <!-- ADD USER -->
+
+        <button
+            type="button"
+            id="quickAddUser"
+            class="quick-action"
+        >
+
+            <span class="quick-action-icon">
+                ➕
+            </span>
+
+            <span>
+
+                <strong>
+                    Add User
+                </strong>
+
+                <small>
+                    Create a new user
+                </small>
+
+            </span>
+
+        </button>
+
+
+        <!-- MANAGE USERS -->
+
+        <button
+            type="button"
+            id="quickManageUsers"
+            class="quick-action"
+        >
+
+            <span class="quick-action-icon">
+                👥
+            </span>
+
+            <span>
+
+                <strong>
+                    Manage Users
+                </strong>
+
+                <small>
+                    View and manage accounts
+                </small>
+
+            </span>
+
+        </button>
+
+
+        <!-- PROFILE -->
+
+        <button
+            type="button"
+            id="quickProfile"
+            class="quick-action"
+        >
+
+            <span class="quick-action-icon">
+                👤
+            </span>
+
+            <span>
+
+                <strong>
+                    My Profile
+                </strong>
+
+                <small>
+                    Manage your account
+                </small>
+
+            </span>
+
+        </button>
+
+
+        <!-- SETTINGS -->
+
+        <button
+            type="button"
+            id="quickSettings"
+            class="quick-action"
+        >
+
+            <span class="quick-action-icon">
+                ⚙️
+            </span>
+
+            <span>
+
+                <strong>
+                    Settings
+                </strong>
+
+                <small>
+                    Configure application
+                </small>
+
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+            <!-- ==============================
+                 USER DASHBOARD
+            =============================== -->
+
+            <div
+                class="user-dashboard-card"
+                id="userDashboardCard"
+            >
+
+                <h2>
+                    Account Overview
+                </h2>
+
+                <p>
+                    You are logged in as a
+                    regular user.
+                </p>
+
+
+                <div class="account-info-grid">
+
+                    <div>
+
+                        <span>
+                            Name
+                        </span>
+
+                        <strong id="userAccountName">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Email
+                        </span>
+
+                        <strong id="userAccountEmail">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Role
+                        </span>
+
+                        <strong id="userAccountRole">
+                            User
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 RECENT USERS
+            =============================== -->
+
+            <div
+                class="recent-users-card admin-dashboard-only"
+                id="recentUsersCard"
+            >
+
+                <div class="recent-header">
+
+                    <div>
+
+                        <h2>
+                            Recent Users
+                        </h2>
+
+                        <p>
+                            Latest registered accounts
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="refreshDashboard"
+                        class="refresh-btn"
+                        type="button"
+                    >
+                        ↻ Refresh
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="recent-users-list"
+                    id="recentUsersList"
+                >
+
+                    <div class="dashboard-loading">
+                        Loading users...
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ACTIVITY LOG -->
+
+<div class="card dashboard-activity-card">
+
+    <div class="card-header">
+
+        <div>
+            <h3>Recent Activity</h3>
+
+            <span
+                id="dashboardActivityCount"
+                class="activity-count"
+            >
+                Latest system actions
+            </span>
+        </div>
+
+        <a
+            href="activity.html"
+            class="btn btn-secondary"
+        >
+            View All
+        </a>
+
+    </div>
+
+
+    <div
+        id="dashboardActivityList"
+        class="dashboard-activity-list"
+    >
+
+        <div class="dashboard-loading">
+            Loading activity...
+        </div>
+
+    </div>
+
+</div>
+
+
+            <!-- ==============================
+                 EMPTY / ERROR MESSAGE
+            =============================== -->
+
+            <div
+                id="dashboardMessage"
+                class="dashboard-message hidden"
+            >
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/sidebar.js"></script>
+
+    <script src="js/notifications.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+    <script src="js/notifications-ui.js"></script>
+
+</body>
+
+</html>

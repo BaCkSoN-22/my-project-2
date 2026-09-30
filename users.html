@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin System - Users</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- SIDEBAR -->
+    <!-- ============================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            Admin System
+        </div>
+
+        <button
+            id="sidebarToggle"
+            class="sidebar-toggle"
+            type="button"
+        >
+            ☰
+        </button>
+
+        <nav>
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                Dashboard
+            </a>
+
+            <a
+                href="users.html"
+                class="nav-link active"
+            >
+                Users
+            </a>
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                Settings
+            </a>
+
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+        >
+            🌙
+        </button>
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            type="button"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- ============================= -->
+    <!-- MAIN -->
+    <!-- ============================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Users
+                </h1>
+
+                <p>
+                    Manage system users
+                </p>
+
+            </div>
+
+            <div class="user-info">
+
+                <span id="adminName">
+                    Admin
+                </span>
+
+                <span
+                    id="adminRole"
+                    class="role-badge"
+                >
+                    ADMIN
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ============================= -->
+        <!-- USERS CONTENT -->
+        <!-- ============================= -->
+
+        <section class="dashboard-content">
+
+            <!-- HEADER -->
+
+            <div class="users-header">
+
+                <div>
+
+                    <h2>
+                        All Users
+                    </h2>
+
+                    <p>
+                        Manage registered accounts
+                    </p>
+
+                </div>
+
+                <button
+                    id="addUserBtn"
+                    class="btn-primary add-user-btn"
+                    type="button"
+                >
+                    + Add User
+                </button>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- STAT -->
+            <!-- ============================= -->
+
+            <div class="users-summary">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <div class="stat-title">
+                            Total Users
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="totalUsersCount"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- SEARCH / FILTER / SORT -->
+            <!-- ============================= -->
+
+            <div class="users-tools">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by name or email..."
+                >
+
+
+                <select id="roleFilter">
+
+                    <option value="all">
+                        All Roles
+                    </option>
+
+                    <option value="admin">
+                        Admin
+                    </option>
+
+                    <option value="user">
+                        User
+                    </option>
+
+                </select>
+
+
+                <select id="sortSelect">
+
+                    <option value="newest">
+                        Newest First
+                    </option>
+
+                    <option value="oldest">
+                        Oldest First
+                    </option>
+
+                    <option value="name-asc">
+                        Name A-Z
+                    </option>
+
+                    <option value="name-desc">
+                        Name Z-A
+                    </option>
+
+                    <option value="email-asc">
+                        Email A-Z
+                    </option>
+
+                    <option value="email-desc">
+                        Email Z-A
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- TABLE -->
+            <!-- ============================= -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Created
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="usersTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- PAGINATION -->
+            <!-- ============================= -->
+
+            <div class="pagination">
+
+                <div class="pagination-info">
+
+                    Showing
+                    <strong id="showingFrom">
+                        0
+                    </strong>
+
+                    -
+                    <strong id="showingTo">
+                        0
+                    </strong>
+
+                    of
+                    <strong id="showingTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="pagination-buttons">
+
+                    <button
+                        id="prevPageBtn"
+                        type="button"
+                    >
+                        ← Previous
+                    </button>
+
+
+                    <span id="pageInfo">
+                        Page 1
+                    </span>
+
+
+                    <button
+                        id="nextPageBtn"
+                        type="button"
+                    >
+                        Next →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- ADD / EDIT USER MODAL -->
+    <!-- ============================= -->
+
+    <div
+        class="modal"
+        id="userModal"
+    >
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modalTitle">
+                        Add User
+                    </h2>
+
+                    <p>
+                        Create or edit user account
+                    </p>
+
+                </div>
+
+                <button
+                    id="closeModalBtn"
+                    class="close-btn"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="userForm">
+
+                <input
+                    type="hidden"
+                    id="editUserId"
+                >
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="userNameInput">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="userNameInput"
+                        placeholder="Enter full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="userEmailInput">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="userEmailInput"
+                        placeholder="Enter email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="userPasswordInput">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="userPasswordInput"
+                        placeholder="Enter password"
+                    >
+
+                    <small>
+                        Leave empty when editing to keep the current password.
+                    </small>
+
+                </div>
+
+
+                <!-- ROLE -->
+
+                <div class="form-group">
+
+                    <label for="userRoleInput">
+                        Role
+                    </label>
+
+                    <select id="userRoleInput">
+
+                        <option value="user">
+                            User
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ERROR -->
+
+                <p
+                    id="userFormError"
+                    class="error"
+                ></p>
+
+
+                <!-- BUTTONS -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelUserBtn"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Save User
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- USER DETAILS MODAL -->
+    <!-- ============================= -->
+
+    <div
+        id="detailsModal"
+        class="modal"
+    >
+
+        <div class="modal-content details-modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        User Details
+                    </h2>
+
+                    <p>
+                        Account information
+                    </p>
+
+                </div>
+
+                <button
+                    id="closeDetailsBtn"
+                    class="close-btn"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- AVATAR -->
+
+            <div
+                class="details-avatar"
+                id="detailsAvatar"
+            >
+                U
+            </div>
+
+
+            <!-- NAME -->
+
+            <div class="details-name">
+
+                <h3 id="detailsName">
+                    User
+                </h3>
+
+                <span
+                    id="detailsRole"
+                    class="table-role user"
+                >
+                    USER
+                </span>
+
+            </div>
+
+
+            <!-- DETAILS -->
+
+            <div class="details-grid">
+
+                <div class="details-item">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="detailsEmail">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="details-item">
+
+                    <span>
+                        User ID
+                    </span>
+
+                    <strong id="detailsId">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="details-item">
+
+                    <span>
+                        Created
+                    </span>
+
+                    <strong id="detailsCreated">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="details-item">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong class="account-active">
+                        Active
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="details-actions">
+
+                <button
+                    id="detailsEditBtn"
+                    class="edit-btn"
+                    type="button"
+                >
+                    Edit User
+                </button>
+
+                <button
+                    id="detailsDeleteBtn"
+                    class="delete-btn"
+                    type="button"
+                >
+                    Delete User
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- SCRIPTS -->
+    <!-- ============================= -->
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/sidebar.js"></script>
+
+    <script src="js/notifications.js"></script>
+
+    <script src="js/users.js"></script>
+
+    <script src="js/notifications-ui.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin System - Profile</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            Admin System
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html" class="nav-link">
+                Dashboard
+            </a>
+
+            <a href="users.html" class="nav-link admin-only">
+                Users
+            </a>
+
+            <a href="profile.html" class="nav-link active">
+                Profile
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                Settings
+            </a>
+
+        </nav>
+
+        <button id="logoutBtn" class="logout-btn">
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h1>Profile</h1>
+
+                <p>
+                    Manage your account
+                </p>
+            </div>
+
+
+            <div class="user-info">
+
+                <span id="topUserName">
+                    User
+                </span>
+
+                <span id="topUserRole" class="role-badge">
+                    USER
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- PROFILE -->
+        <section class="profile-content">
+
+
+            <!-- LEFT CARD -->
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+
+                    <span id="avatarLetter">
+                        U
+                    </span>
+
+                </div>
+
+
+                <h2 id="profileDisplayName">
+                    User
+                </h2>
+
+
+                <p id="profileDisplayEmail">
+                    user@example.com
+                </p>
+
+
+                <span
+                    id="profileDisplayRole"
+                    class="profile-role"
+                >
+                    USER
+                </span>
+
+            </div>
+
+
+
+            <!-- RIGHT CARD -->
+            <div class="profile-form-card">
+
+
+                <div class="profile-card-header">
+
+                    <h2>
+                        Account Information
+                    </h2>
+
+                    <p>
+                        Update your name and password
+                    </p>
+
+                </div>
+
+
+
+                <form id="profileForm">
+
+
+                    <!-- NAME -->
+                    <div class="form-group">
+
+                        <label for="profileName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="profileName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- CURRENT PASSWORD -->
+                    <div class="form-group">
+
+                        <label for="profileCurrentPassword">
+                            Current Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="profileCurrentPassword"
+                            placeholder="Enter current password"
+                        >
+
+                    </div>
+
+
+
+                    <!-- NEW PASSWORD -->
+                    <div class="form-group">
+
+                        <label for="profilePassword">
+                            New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="profilePassword"
+                            placeholder="Enter new password"
+                        >
+
+                    </div>
+
+
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="form-group">
+
+                        <label for="profileConfirmPassword">
+                            Confirm New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="profileConfirmPassword"
+                            placeholder="Repeat new password"
+                        >
+
+                    </div>
+
+
+
+                    <!-- ERROR -->
+                    <p
+                        id="profileError"
+                        class="error"
+                    ></p>
+
+
+                    <!-- SUCCESS -->
+                    <p
+                        id="profileSuccess"
+                        class="success"
+                    ></p>
+
+
+
+                    <!-- SAVE -->
+                    <button
+                        type="submit"
+                        class="btn-primary profile-save-btn"
+                    >
+                        Save Changes
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/sidebar.js"></script>
+
+    <script src="js/notifications.js"></script>
+
+    <script src="js/profile.js"></script>
+
+    <script src="js/notifications-ui.js"></script>
+
+</body>
+</html>
